@@ -8,8 +8,10 @@ export default function Chart () {
     const bidList = useSelector((state: RootState) => state.webReducer.list)
 
     // console.log('app', bidList)
+
     return(
         <>
+        
         </>
     )
 }
