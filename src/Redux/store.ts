@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-// import {  } from "./action";
 import { webMiddleware } from "./middleware";
 import { rootReducer } from "./index";
+import { buildConnection } from "./action";
 
 const store = configureStore({
   reducer: rootReducer,
-//   middleware: webMiddleware,
+  middleware: [webMiddleware],
 });
 
-// store.dispatch(getUser());
+store.dispatch(buildConnection());
 
 export default store;
