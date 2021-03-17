@@ -25,7 +25,7 @@ const StateIcon = () => {
     const status = useSelector((state: RootState) => state.webReducer.status)
     const eventList = useSelector((state: RootState) => state.webReducer.eventTime)
     const errorMessage = useSelector((state: RootState) => state.webReducer.errorMsg)
-    const time = new Date(errorMessage[0])
+  
     
     return(
         <>
@@ -34,7 +34,6 @@ const StateIcon = () => {
         (<> 
             <AiOutlineSmile style= {{color:'#0fd850', width: '28px', height: '28px', display:'inline-block'}} />
             <Pp>&nbsp; Connected! Websocket is working.</Pp>
-            <Pp>{time}</Pp>
          </>): 
          (<>
             <AiFillWarning style= {{color:'#ff9569', width: '28px', height: '28px' , display:'inline-block'}} />
