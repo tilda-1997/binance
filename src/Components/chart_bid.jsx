@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Line } from '@reactchartjs/react-chart.js'
 import styled from "styled-components";
 
 const Div = styled.div`
-  width: 600px;
+  width: 660px;
   padding: 10px 80px;
 `
 

@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../Redux";
-import { AiOutlineFrown, AiOutlineSmile, AiFillWarning,  AiOutlineFall, AiOutlineSchedule } from "react-icons/ai";
+import { AiOutlineSmile, AiFillWarning,  AiOutlineFall, AiOutlineSchedule } from "react-icons/ai";
 import styled from "styled-components";
 
 const Pp = styled.p`
-    color: #D8F0ED;
+    color: #F7FCFB;
     font-family: Optima;
     font-size: 18px;
     font-weight: 700;
@@ -24,26 +24,30 @@ const StateIcon = () => {
 
     const status = useSelector((state: RootState) => state.webReducer.status)
     const eventList = useSelector((state: RootState) => state.webReducer.eventTime)
-
+    const errorMessage = useSelector((state: RootState) => state.webReducer.errorMsg)
+    const time = new Date(errorMessage[0])
+    
     return(
         <>
         <Div>
         {status? 
         (<> 
             <AiOutlineSmile style= {{color:'#0fd850', width: '28px', height: '28px', display:'inline-block'}} />
-            <Pp>&nbsp; Connected!</Pp>
+            <Pp>&nbsp; Connected! Websocket is working.</Pp>
+            <Pp>{time}</Pp>
          </>): 
          (<>
             <AiFillWarning style= {{color:'#ff9569', width: '28px', height: '28px' , display:'inline-block'}} />
             <Pp>&nbsp; Disconnected! Please refresh the page</Pp>
+            {errorMessage!==null? <Text>{errorMessage}</Text> : null}
          </>
          )}
         </Div>
         <Text> The data shows the real-time transactions of BinanceCoin BTC (BNB-BTC). <AiOutlineFall /> &nbsp;
             The x-axis of the charts below refers to the price level, and the y-axis refers to the quantity.
         </Text>
-        { eventList[5]? (<Text> 
-        The time event <AiOutlineSchedule />  code of the displayed data is from {eventList[0]} to {eventList[5]}.</Text>) : null}
+        { eventList[9]? (<Text> 
+        The time event <AiOutlineSchedule />  code of the displayed data is from {eventList[0]} to {eventList[9]}.</Text>) : null}
        
         </>
     )

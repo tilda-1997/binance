@@ -14,6 +14,9 @@ const initialState = {
     bids_x: [] as number[], // bid-x
     bids_y: [] as number[], // bid-y
 
+    bids_max_x: [] as number[],
+    bids_max_y: [] as number[],
+
     eventTime: [] as string[], 
     errorMsg: ''
 }
@@ -36,6 +39,11 @@ export const webReducer =  createReducer(initialState, {
         var valid_bid_price = []
         var valid_bid_quantity = []
 
+        //test
+        var bid_bestPrice_x_value = 0
+        // var bid_bestPrice_y = 0
+
+
         for (let i = 0; i < p['a'].length; i++){
             var ask = p['a'][i]
             if (ask[1] > 0){
@@ -47,26 +55,39 @@ export const webReducer =  createReducer(initialState, {
 
         for (let i = 0; i < p['b'].length; i++){
             var bid = p['b'][i]
+            var max_bid_price = 0
+            var bid_bestPrice_x = 0
+
             if (bid[1] > 0){
                 valid_bid.push(bid)
                 valid_bid_price.push(bid[0]) // b-x
                 valid_bid_quantity.push(bid[1]) // b-y
+
+                if (bid[0] > max_bid_price){
+                    max_bid_price = bid[0]
+                    bid_bestPrice_x = bid[0]// get highest price of bid
+                    // bid_bestPrice_y = bid[1]
+                }
             }
+            bid_bestPrice_x_value = bid_bestPrice_x
         }
 
         // console.log(valid_ask)
 
-        if (state.list.length <= 5) {
+        if (state.list.length <= 9) {
             state.list.push(action.payload)
             state.asks.push(valid_ask[0])
             state.bids.push(valid_bid[0])
             state.eventTime.push((p['E']).toString()) 
-            state.asks_x.push(valid_bid_price[0]) // a-x
-            state.asks_y.push(valid_bid_quantity[0]) // a-y
+            state.asks_x.push(valid_ask_price[0]) // a-x
+            state.asks_y.push(valid_ask_quantity[0]) // a-y
             state.bids_x.push(valid_bid_price[0]) // b-x
             state.bids_y.push(valid_bid_quantity[0]) // b-y
+
+            state.bids_max_x.push(bid_bestPrice_x_value) // max
+            // state.bids_max_y.push(bid_bestPrice_y)
         }
-        else if (state.list.length > 5) {
+        else if (state.list.length > 9) {
             state.list.splice(0, 1);
             state.list.push(action.payload);
 
@@ -90,6 +111,14 @@ export const webReducer =  createReducer(initialState, {
 
             state.bids_y.splice(0,1)
             state.bids_y.push(valid_bid_quantity[0]) // b-y
+
+           
+            state.bids_max_x.splice(0,1);
+            state.bids_max_x.push(bid_bestPrice_x_value)
+            //     state.bids_max_y.splice(0,1);
+            //     state.bids_max_y.push(bid_bestPrice_y)
+            
+
         }
 
         // console.log('len', state.bids_x[0])

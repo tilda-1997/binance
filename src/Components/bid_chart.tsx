@@ -43,7 +43,6 @@ export default function Chart () {
 
     return(
         <>
-        <p></p>
          {/* <Line data={data_bids} options={options} /> */}
         </>
     )
