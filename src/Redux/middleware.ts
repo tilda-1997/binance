@@ -10,7 +10,7 @@ export const webMiddleware: Middleware = (store: any) => (next: any) => (action:
 
     if (type === buildConnection.toString()){
         try {
-            const ws = new WebSocket(url)
+            const ws = new WebSocket(url);
             console.log('ws', ws);
 
             ws.onopen = () => {
@@ -30,7 +30,6 @@ export const webMiddleware: Middleware = (store: any) => (next: any) => (action:
             // }
             
         } catch (error) {
-
             console.log('error', error)
         }
     }

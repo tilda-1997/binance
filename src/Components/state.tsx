@@ -1,23 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../Redux";
-import { AiOutlineFrown, AiOutlineSmile } from "react-icons/ai";
+import { AiOutlineFrown, AiOutlineSmile, AiFillWarning,  AiOutlineFall, AiOutlineSchedule } from "react-icons/ai";
 import styled from "styled-components";
 
-const Pp = styled.h2`
-    color: #F7FCFB;
+const Pp = styled.p`
+    color: #D8F0ED;
     font-family: Optima;
+    font-size: 18px;
     font-weight: 700;
     display: inline-block
 `
 const Div = styled.div`
-    padding: 4px 16px`
+    padding: 0px 8px 8px 16px;
+    text-align: center`
+
+const Text = styled.p`
+    color: #465973;
+    font-family: Optima;
+    text-align: center
+`
 
 const StateIcon = () => {
 
     const status = useSelector((state: RootState) => state.webReducer.status)
+    const eventList = useSelector((state: RootState) => state.webReducer.eventTime)
 
     return(
+        <>
         <Div>
         {status? 
         (<> 
@@ -25,12 +34,18 @@ const StateIcon = () => {
             <Pp>&nbsp; Connected!</Pp>
          </>): 
          (<>
-            <AiOutlineFrown style= {{color:'#ff9569', width: '28px', height: '28px' , display:'inline-block'}} />
+            <AiFillWarning style= {{color:'#ff9569', width: '28px', height: '28px' , display:'inline-block'}} />
             <Pp>&nbsp; Disconnected! Please refresh the page</Pp>
          </>
          )}
-       
         </Div>
+        <Text> The data shows the real-time transactions of BinanceCoin BTC (BNB-BTC). <AiOutlineFall /> &nbsp;
+            The x-axis of the charts below refers to the price level, and the y-axis refers to the quantity.
+        </Text>
+        { eventList[5]? (<Text> 
+        The time event <AiOutlineSchedule />  code of the displayed data is from {eventList[0]} to {eventList[5]}.</Text>) : null}
+       
+        </>
     )
 }
 
