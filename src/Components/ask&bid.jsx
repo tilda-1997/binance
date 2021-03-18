@@ -7,21 +7,32 @@ const Div = styled.div`
   padding: 30px 80px 0px 60px;
 `
 
-export default function MaxBid () {
+export default function AskAndBid () {
 
-    const maxbidList_x = useSelector((state) => state.webReducer.bids_max_x)
+    const bidPrice = useSelector((state) => state.webReducer.bids_x)
+    const askPrice =  useSelector((state) => state.webReducer.asks_x)
     const eventList = useSelector((state) => state.webReducer.eventTime)
 
     const max_data_bids = {
         labels: eventList,
         datasets: [
           {
-            label: '# Bids with best price',
-            data: maxbidList_x,
+            label: '# Ask',
+            data: askPrice,
             fill: false,
-            backgroundColor: '#465973',
-            borderColor: '#8BB6C4',
-            type: 'line',
+            backgroundColor: '#89BEB5',
+            borderColor: '#C5E3DB',
+            pointRadius: 0,
+            fill: false,
+            lineTension: 0,
+            borderWidth: 2
+          },
+          {
+            label: '# Bid',
+            data: bidPrice,
+            fill: false,
+            backgroundColor: '#E5C394',
+            borderColor: '#F4E0BC',
             pointRadius: 0,
             fill: false,
             lineTension: 0,
@@ -38,7 +49,7 @@ export default function MaxBid () {
                 display: true,
                 labelString: 'price',
                 color: '#F7F8F6'
-              },  
+                },  
               ticks: {
                 beginAtZero: false,
               },

@@ -18,9 +18,14 @@ export default function BidChart () {
           {
             label: '# Bids to be updated',
             data: bidList_y,
-            fill: false,
+            // fill: false,
             backgroundColor: '#8BB6C4',
             borderColor: '#B3DBE1',
+            type: 'line',
+            pointRadius: 0,
+            fill: false,
+            lineTension: 0,
+            borderWidth: 2
           },
         ],
     }
@@ -29,6 +34,13 @@ export default function BidChart () {
         scales: {
           yAxes: [
             {
+              gridLines: {
+                drawBorder: true
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'quantity'
+              },  
               ticks: {
                 beginAtZero: true,
               },

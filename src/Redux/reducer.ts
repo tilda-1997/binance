@@ -30,7 +30,8 @@ export const webReducer =  createReducer(initialState, {
     [connectSuccess.type]: (state, action) => {
         state.status = true
         let p = action.payload
-        let date = new Date(p['E']).toLocaleString('en-US')
+        // let date = new Date(p['E']).toLocaleString('en-US')
+        let date = new Date(p['E']).toLocaleTimeString('en-US')
 
         var valid_ask = []
         var valid_ask_price = [] // a-x
@@ -73,7 +74,7 @@ export const webReducer =  createReducer(initialState, {
             bid_bestPrice_x_value = bid_bestPrice_x
         }
 
-        if (state.list.length <= 9) {
+        if (state.list.length <= 20) {
             state.list.push(action.payload)
             state.asks.push(valid_ask[0])
             state.bids.push(valid_bid[0])
@@ -88,7 +89,7 @@ export const webReducer =  createReducer(initialState, {
             state.bids_max_x.push(bid_bestPrice_x_value) // max
             // state.bids_max_y.push(bid_bestPrice_y)
         }
-        else if (state.list.length > 9) {
+        else if (state.list.length > 20) {
             state.list.splice(0, 1);
             state.list.push(action.payload);
 
