@@ -31,7 +31,24 @@ export default function MaxBid () {
     }
 
     const options = {
+      responsive: true,
+      title: {
+        display: true,
+        text: 'See the best price here'
+      },
+      tooltips: {
+        mode: 'index',
+        intersect: false,
+      },
         scales: {
+          xAxes: [{
+            ticks: {
+              callback: (dataLabel, index) => {
+              // Hide the label of every 2nd dataset. return null to hide the grid line too
+              return index % 5 === 0 ? dataLabel : '';
+            }}
+            
+          }],
           yAxes: [
             {
               scaleLabel: {

@@ -7,32 +7,32 @@ const Div = styled.div`
   padding: 30px 80px 0px 60px;
 `
 
-export default function AskAndBid () {
+export default function HighLowAsk () {
 
-    const bidPrice = useSelector((state) => state.webReducer.bids_x)
-    const askPrice =  useSelector((state) => state.webReducer.asks_x)
+    const highAsk = useSelector((state) => state.webReducer.askPrice_max)
+    const lowAsk =  useSelector((state) => state.webReducer.askPrice_min)
     const eventList = useSelector((state) => state.webReducer.eventTime)
 
-    const max_data_bids = {
+    const highLowAsks = {
         labels: eventList,
         datasets: [
           {
-            label: '# Ask',
-            data: askPrice,
+            label: '# Highest Ask Price',
+            data: highAsk,
             fill: false,
-            backgroundColor: '#89BEB5',
-            borderColor: '#C5E3DB',
+            backgroundColor: '#DD581E',
+            borderColor: '#FEAB72',
             pointRadius: 0,
             fill: false,
             lineTension: 0,
             borderWidth: 2
           },
           {
-            label: '# Bid',
-            data: bidPrice,
+            label: '# Lowest Ask Price',
+            data: lowAsk,
             fill: false,
-            backgroundColor: '#E5C394',
-            borderColor: '#F4E0BC',
+            backgroundColor: '#44A5BD',
+            borderColor: '#B0EBE7',
             pointRadius: 0,
             fill: false,
             lineTension: 0,
@@ -67,12 +67,11 @@ export default function AskAndBid () {
           ],
         },
       }
-    
-    // console.log('max', maxbidList_x)
 
+      console.log('hhh', lowAsk)
     return(
         <Div>
-         <Line data={max_data_bids} options={options} />
+         <Line data={highLowAsks} options={options} />
         </Div>
     )
 }

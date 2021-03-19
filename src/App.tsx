@@ -6,6 +6,7 @@ import { AiFillBank } from 'react-icons/ai'
 import BidChart from './Components/chart_bid';
 import MaxBid from './Components/max_bid'
 import AskAndBid from './Components/ask&bid';
+import HighLowAsk from './Components/high&lowAsk';
 
 // background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
 // background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
@@ -36,8 +37,9 @@ function App() {
       <StateIcon />
 
       <ChartDiv>
-        <AskChart />
-        <BidChart />
+        {/* <AskChart />
+        <BidChart /> */}
+        <HighLowAsk />
         <AskAndBid />
         <MaxBid />
       </ChartDiv>
