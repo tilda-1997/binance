@@ -4,33 +4,33 @@ import styled from "styled-components";
 
 const Div = styled.div`
   width: 700px;
-  padding: 30px 80px 60px 60px;
+  padding: 30px 30px 60px 10px;
 `
 
-export default function HighLowAsk () {
+export default function HighLowBid () {
 
-    const highAsk = useSelector((state) => state.webReducer.askPrice_max)
-    const lowAsk =  useSelector((state) => state.webReducer.askPrice_min)
+    const highBid = useSelector((state) => state.webReducer.bidPrice_max)
+    const lowBid =  useSelector((state) => state.webReducer.bidPrice_min)
     const eventList = useSelector((state) => state.webReducer.eventTime)
 
-    const highLowAsks = {
+    const highLowBids = {
         labels: eventList,
         datasets: [
           {
-            label: '# Highest Ask Price',
-            data: highAsk,
+            label: '# Highest Bid Price',
+            data: highBid,
             fill: false,
-            borderColor: '#FEAB72',
+            borderColor: '#FA8079',
             pointRadius: 0,
             fill: false,
             lineTension: 0,
             borderWidth: 2
           },
           {
-            label: '# Lowest Ask Price',
-            data: lowAsk,
+            label: '# Lowest Bid Price',
+            data: lowBid,
             fill: false,
-            borderColor: '#B0EBE7',
+            borderColor: '#B1D1A6',
             pointRadius: 0,
             fill: false,
             lineTension: 0,
@@ -42,7 +42,7 @@ export default function HighLowAsk () {
     const options = {
         title: {
             display: true,
-            text: 'High & low price of ask'
+            text: 'High & low price of bids'
           },
         scales: {
             tooltips: {
@@ -54,29 +54,30 @@ export default function HighLowAsk () {
                 mode: 'index',
                 intersect: true
             },
-            xAxes: [{
-                ticks: {
-                    callback: (dataLabel, index) => {
-                    return index % 10 === 0 ? dataLabel : '';
-                }}
-                }],
-            yAxes: [{
-                scaleLabel: {
-                    display: true,
-                    labelString: 'price (x0.001)',
-                    color: '#F7F8F6'
+        xAxes: [{
+            ticks: {
+                callback: (dataLabel, index) => {
+                return index % 10 === 0 ? dataLabel : '';
+            }}
+            }],
+        yAxes: [
+            {
+              scaleLabel: {
+                display: true,
+                labelString: 'price (x0.001)',
+                color: '#F7F8F6'
                 },  
-                ticks: {
-                    beginAtZero: false,
-                },
-                },
-            ],
+              ticks: {
+                beginAtZero: false,
+              },
+            },
+          ],
         },
       }
 
     return(
         <Div>
-         <Line data={highLowAsks} options={options} />
+         <Line data={highLowBids} options={options} />
         </Div>
     )
 }

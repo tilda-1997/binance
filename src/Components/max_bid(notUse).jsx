@@ -7,32 +7,21 @@ const Div = styled.div`
   padding: 30px 80px 0px 60px;
 `
 
-export default function AskAndBid () {
+export default function MaxBid () {
 
-    const bidPrice = useSelector((state) => state.webReducer.bids_x)
-    const askPrice =  useSelector((state) => state.webReducer.asks_x)
+    const maxbidList_x = useSelector((state) => state.webReducer.bids_max_x)
     const eventList = useSelector((state) => state.webReducer.eventTime)
 
     const max_data_bids = {
         labels: eventList,
         datasets: [
           {
-            label: '# Ask',
-            data: askPrice,
+            label: '# Bids with best price',
+            data: maxbidList_x,
             fill: false,
-            backgroundColor: '#89BEB5',
-            borderColor: '#C5E3DB',
-            pointRadius: 0,
-            fill: false,
-            lineTension: 0,
-            borderWidth: 2
-          },
-          {
-            label: '# Bid',
-            data: bidPrice,
-            fill: false,
-            backgroundColor: '#E5C394',
-            borderColor: '#F4E0BC',
+            backgroundColor: '#465973',
+            borderColor: '#8BB6C4',
+            type: 'line',
             pointRadius: 0,
             fill: false,
             lineTension: 0,
@@ -42,24 +31,30 @@ export default function AskAndBid () {
     }
 
     const options = {
+      responsive: true,
+      title: {
+        display: true,
+        text: 'See the best price here'
+      },
+      tooltips: {
+        mode: 'index',
+        intersect: false,
+      },
         scales: {
-            tooltips: {
-                enabled: false,
-                mode: 'index',
-                // position: 'nearest',
-                // custom: customTooltips
-            },
-            hover: {
-                mode: 'index',
-                intersect: true
-            },
+          xAxes: [{
+            ticks: {
+              callback: (dataLabel, index) => {
+              // Hide the label of every 2nd dataset. return null to hide the grid line too
+              return index % 5 === 0 ? dataLabel : '';
+            }}
+          }],
           yAxes: [
             {
               scaleLabel: {
                 display: true,
                 labelString: 'price',
                 color: '#F7F8F6'
-                },  
+              },  
               ticks: {
                 beginAtZero: false,
               },

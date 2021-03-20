@@ -11,7 +11,7 @@ const Pp = styled.p`
     display: inline-block
 `
 const Div = styled.div`
-    padding: 0px 8px 8px 16px;
+    padding: 0px 8px 0px 16px;
     text-align: center`
 
 const Text = styled.p`
@@ -42,9 +42,10 @@ const StateIcon = () => {
          </>
          )}
         </Div>
-        <Text>  <AiOutlineFall /> The data shows the real-time transactions of BinanceCoin BTC (BNB-BTC).  </Text>
-        { eventList[7]? (<Text> 
-        Time event <AiOutlineSchedule />  From  {eventList[0]} to {eventList[7]} </Text>) : null}
+       
+        { eventList[60]? (<Text> <AiOutlineFall /> The data shows the real-time transactions of BinanceCoin BTC (BNB-BTC).
+        Time event <AiOutlineSchedule />  From  {eventList[0]} to {eventList[60]}. </Text>) : 
+        ( <Text>  <AiOutlineFall /> The data shows the real-time transactions of BinanceCoin BTC (BNB-BTC).  </Text>)}
        
         </>
     )
