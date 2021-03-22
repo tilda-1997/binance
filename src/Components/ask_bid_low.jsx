@@ -22,7 +22,7 @@ export default function LowAskBid () {
             fill: false,
             borderColor: '#96C4D8',
             backgroundColor: '#B2D0EB',
-						pointRadius: 3,
+						pointRadius: 5,
 						pointHoverRadius: 15,
 						showLine: false // no line shown
           },
@@ -33,7 +33,7 @@ export default function LowAskBid () {
             borderColor: '#DF6C7E',
             pointRadius: 0,
             backgroundColor: '#FBB1B5',
-            pointRadius: 3,
+            pointRadius: 5,
             pointHoverRadius: 15,
             showLine: false // no line shown
           },

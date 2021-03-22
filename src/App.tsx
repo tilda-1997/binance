@@ -6,6 +6,8 @@ import HighLowAsk from './Components/high&lowAsk';
 import HighLowBid from './Components/high&lowBid';
 import HighAskBid from './Components/ask_bid_high';
 import LowAskBid from './Components/ask_bid_low';
+import './App.css'
+
 
 const Div = styled.div`
   margin:0;
@@ -28,6 +30,7 @@ const ChartDiv = styled.div`
 
 function App() {
   return (
+   
     <Div>
       <H1> <AiFillBank style= {{ width: '28px', height: '28px'}} /> Binance Case - Depth of BNB-BTC </H1>
       <StateIcon />
@@ -40,6 +43,7 @@ function App() {
       </ChartDiv>
       
     </Div>
+   
   );
 }
 
