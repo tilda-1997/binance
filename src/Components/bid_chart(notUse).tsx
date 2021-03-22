@@ -13,14 +13,14 @@ export default function Chart () {
     const eventList = useSelector((state: RootState) => state.webReducer.eventTime)
 
     const askList_x = useSelector((state: RootState) => state.webReducer.asks_x)
-    const askList_y = useSelector((state: RootState) => state.webReducer.asks_y)
+    // const askList_y = useSelector((state: RootState) => state.webReducer.asks_y)
 
     const data_bids:BidProps = {
         labels: askList_x,
         datasets: [
           {
             label: '# bids',
-            data: askList_y,
+            data: [],
             fill: false,
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgba(255, 99, 132, 0.2)',
