@@ -3,39 +3,39 @@ import { Line } from '@reactchartjs/react-chart.js'
 import styled from "styled-components";
 
 const Div = styled.div`
-  width: 700px;
+  width  : 700px;
   padding: 30px 30px 30px 60px;
 `
 
 export default function HighAskBid () {
 
-    const bidHigh = useSelector((state) => state.webReducer.bidPrice_max)
-    const askHigh =  useSelector((state) => state.webReducer.askPrice_max)
+    const bidHigh   = useSelector((state) => state.webReducer.bidPrice_max)
+    const askHigh   = useSelector((state) => state.webReducer.askPrice_max)
     const eventList = useSelector((state) => state.webReducer.eventTime)
 
     const maxs = {
-        labels: eventList,
+        labels  : eventList,
         datasets: [
           {
-            label: '# Best Ask Price',
-            data: askHigh,
-            fill: false,
-            borderColor: '#CFAFE2',
-            backgroundColor: '#CFAFE2',
-						pointRadius: 5,
-						pointHoverRadius: 15,
-						showLine: false // no line shown
+            label           : '# Best Ask Price',
+            data            : askHigh,
+            fill            : false,
+            borderColor     : '#CFAFE2',
+            backgroundColor : '#CFAFE2',
+            pointRadius     : 5,
+            pointHoverRadius: 15,
+            showLine        : false                // no line shown
           },
           {
-            label: '# Best Bid Price',
-            data: bidHigh,
-            fill: false,
-            borderColor: '#FDE0A2',
-            pointRadius: 0,
-            backgroundColor: '#FDE0A2',
-						pointRadius: 5,
-						pointHoverRadius: 15,
-						showLine: false // no line shown
+            label           : '# Best Bid Price',
+            data            : bidHigh,
+            fill            : false,
+            borderColor     : '#FDE0A2',
+            pointRadius     : 0,
+            backgroundColor : '#FDE0A2',
+            pointRadius     : 5,
+            pointHoverRadius: 15,
+            showLine        : false                // no line shown
           },
         ],
     }
@@ -43,7 +43,7 @@ export default function HighAskBid () {
     const options = {
       title: {
         display: true,
-        text: 'See the best prices here',
+        text   : 'See the best prices here',
       },
       elements: {
         point: {
@@ -52,12 +52,12 @@ export default function HighAskBid () {
       },
         scales: {
             tooltips: {
-                enabled: false,
-                mode: 'index',
+                enabled : false,
+                mode    : 'index',
                 position: 'average',
             },
             hover: {
-                mode: 'index',
+                mode     : 'index',
                 intersect: true
         },
         xAxes: [{
@@ -69,9 +69,9 @@ export default function HighAskBid () {
         yAxes: [
           {
             scaleLabel: {
-              display: true,
+              display    : true,
               labelString: 'price (x0.001)',
-              color: '#F7F8F6'
+              color      : '#F7F8F6'
               },  
             ticks: {
               beginAtZero: false,
@@ -83,7 +83,7 @@ export default function HighAskBid () {
 
     return(
         <Div>
-         <Line data={maxs} options={options} />
+         <Line data = {maxs} options = {options} />
         </Div>
     )
 }

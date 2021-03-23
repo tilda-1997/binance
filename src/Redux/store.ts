@@ -4,7 +4,7 @@ import { rootReducer } from "./index";
 import { buildConnection } from "./action";
 
 const store = configureStore({
-  reducer: rootReducer,
+  reducer   : rootReducer,
   middleware: [webMiddleware],
 });
 

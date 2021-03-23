@@ -2,7 +2,7 @@ import { AnyAction, Middleware } from "@reduxjs/toolkit";
 import { buildConnection, connectSuccess, connectFail} from './action'
 
 export const webMiddleware: Middleware = (store: any) => (next: any) => (action: AnyAction) => {
-    const { type, payload } = action;
+    const { type } = action;
     const url = 'wss://stream.binance.com:9443/ws/bnbbtc@depth';
 
   
