@@ -3,7 +3,7 @@ import { buildConnection, connectSuccess, connectFail} from './action'
 
 export const webMiddleware: Middleware = (store: any) => (next: any) => (action: AnyAction) => {
     const { type } = action;
-    const url = 'wss://stream.binance.com:9443/ws/bnbbtc@depth';
+    const url      = 'wss://stream.binance.com:9443/ws/bnbbtc@depth';
 
   
     next(action);
@@ -25,9 +25,7 @@ export const webMiddleware: Middleware = (store: any) => (next: any) => (action:
                 console.log('error', event)
                 store.dispatch(connectFail(event))
             }
-            // if (ws.readyState == 0) {
-            //     console.log('loading')
-            // }
+          
             
         } catch (error) {
             console.log('error', error)
