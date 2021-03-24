@@ -4,26 +4,26 @@ import { AiOutlineSmile, AiFillWarning,  AiOutlineFall, AiOutlineSchedule } from
 import styled from "styled-components";
 
 const Pp = styled.p`
-    color: #DFDEE3;
+    color      : #DFDEE3;
     font-family: Optima;
-    font-size: 16px;
+    font-size  : 16px;
     font-weight: 700;
-    display: inline-block
+    display    : inline-block
 `
 const Div = styled.div`
-    padding: 0px 8px 0px 16px;
+    padding   : 0px 8px 0px 16px;
     text-align: center`
 
 const Text = styled.p`
-    color: #B9CDE3;
+    color      : #B9CDE3;
     font-family: Optima;
-    text-align: center
+    text-align : center
 `
 
 const StateIcon = () => {
 
-    const status = useSelector((state: RootState) => state.webReducer.status)
-    const eventList = useSelector((state: RootState) => state.webReducer.eventTime)
+    const status       = useSelector((state: RootState) => state.webReducer.status)
+    const eventList    = useSelector((state: RootState) => state.webReducer.eventTime)
     const errorMessage = useSelector((state: RootState) => state.webReducer.errorMsg)
   
     
@@ -33,12 +33,12 @@ const StateIcon = () => {
         {status? 
         (<> 
             <Pp> Connected! Websocket is working. &nbsp; </Pp>
-            <AiOutlineSmile style= {{color:'#0fd850', width: '28px', height: '28px', display:'inline-block'}} />
+            <AiOutlineSmile style = {{color:'#0fd850', width: '28px', height: '28px', display:'inline-block'}} />
          </>): 
          (<>
             <Pp> Disconnected! Please refresh the page &nbsp; </Pp>
             {/* {errorMessage!==null? <Text>{errorMessage}</Text> : null} */}
-            <AiFillWarning style= {{color:'#ff9569', width: '28px', height: '28px' , display:'inline-block'}} />
+            <AiFillWarning style = {{color:'#ff9569', width: '28px', height: '28px' , display:'inline-block'}} />
          </>
          )}
         </Div>

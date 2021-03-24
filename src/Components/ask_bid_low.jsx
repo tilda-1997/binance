@@ -3,39 +3,39 @@ import { Line } from '@reactchartjs/react-chart.js'
 import styled from "styled-components";
 
 const Div = styled.div`
-  width: 700px;
+  width  : 700px;
   padding: 30px 30px 30px 10px;
 `
 
 export default function LowAskBid () {
 
-    const bidLow = useSelector((state) => state.webReducer.bidPrice_min)
-    const askLow =  useSelector((state) => state.webReducer.askPrice_min)
+    const bidLow    = useSelector((state) => state.webReducer.bidPrice_min)
+    const askLow    = useSelector((state) => state.webReducer.askPrice_min)
     const eventList = useSelector((state) => state.webReducer.eventTime)
 
     const maxs = {
-        labels: eventList,
+        labels  : eventList,
         datasets: [
           {
-            label: '# Lowest Ask Price',
-            data: askLow,
-            fill: false,
-            borderColor: '#96C4D8',
-            backgroundColor: '#B2D0EB',
-						pointRadius: 5,
-						pointHoverRadius: 15,
-						showLine: false // no line shown
+            label           : '# Lowest Ask Price',
+            data            : askLow,
+            fill            : false,
+            borderColor     : '#96C4D8',
+            backgroundColor : '#B2D0EB',
+            pointRadius     : 5,
+            pointHoverRadius: 15,
+            showLine        : false                  // no line shown
           },
           {
-            label: '# Lowest Bid Price',
-            data: bidLow,
-            fill: false,
-            borderColor: '#DF6C7E',
-            pointRadius: 0,
-            backgroundColor: '#FBB1B5',
-            pointRadius: 5,
+            label           : '# Lowest Bid Price',
+            data            : bidLow,
+            fill            : false,
+            borderColor     : '#DF6C7E',
+            pointRadius     : 0,
+            backgroundColor : '#FBB1B5',
+            pointRadius     : 5,
             pointHoverRadius: 15,
-            showLine: false // no line shown
+            showLine        : false                  // no line shown
           },
         ],
     }
@@ -43,7 +43,7 @@ export default function LowAskBid () {
     const options = {
         title: {
             display: true,
-            text: 'See the lowest price here'
+            text   : 'See the lowest price here'
           },
       elements: {
         point: {
@@ -52,12 +52,12 @@ export default function LowAskBid () {
       },
         scales: {
             tooltips: {
-                enabled: false,
-                mode: 'index',
+                enabled : false,
+                mode    : 'index',
                 position: 'average',
             },
             hover: {
-                mode: 'index',
+                mode     : 'index',
                 intersect: true
         },
         xAxes: [{
@@ -69,9 +69,9 @@ export default function LowAskBid () {
         yAxes: [
           {
             scaleLabel: {
-              display: true,
+              display    : true,
               labelString: 'price (x0.001)',
-              color: '#F7F8F6'
+              color      : '#F7F8F6'
               },  
             ticks: {
               beginAtZero: false,
@@ -85,7 +85,7 @@ export default function LowAskBid () {
 
     return(
         <Div>
-         <Line data={maxs} options={options} />
+         <Line data = {maxs} options = {options} />
         </Div>
     )
 }

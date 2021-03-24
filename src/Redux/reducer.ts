@@ -4,18 +4,18 @@ import { Binance } from "../Type"
 
 const initialState = {
     status: false,
-    list: [] as Binance[], // origin data
+    list  : [] as Binance[],   // origin data
 
-    asks: [] as number[][], //'a'
+    asks        : [] as number[][],   //'a'
     askPrice_max: [] as number[],
     askPrice_min: [] as number[],
 
-    bids: [] as number[][], //'b'
+    bids        : [] as number[][],   //'b'
     bidPrice_max: [] as number[],
     bidPrice_min: [] as number[],
 
-    eventTime: [] as string[], 
-    errorMsg: ''
+    eventTime: [] as string[],
+    errorMsg : ''
 }
 
 export const webReducer =  createReducer(initialState, {
@@ -25,15 +25,15 @@ export const webReducer =  createReducer(initialState, {
     },
 
     [connectSuccess.type]: (state, action) => {
-        state.status = true
-        let p = action.payload
+            state.status = true
+        let p            = action.payload
         // let date = new Date(p['E']).toLocaleString('en-US')
         let date = new Date(p['E']).toLocaleTimeString('en-US')
 
         // Ask
         let all_ask: number[][] = p['a']
-        let valid_ask = all_ask.filter( a => a[1] > 0) // filter the asks with 0 quantity
-        let valid_ask_price = [] 
+        let valid_ask           = all_ask.filter( a => a[1] > 0)  // filter the asks with 0 quantity
+        let valid_ask_price     = []
         for (let i = 0; i < valid_ask.length; i++) {
             valid_ask_price.push(valid_ask[i][0]) // get all valid prices with asks
         }
@@ -42,8 +42,8 @@ export const webReducer =  createReducer(initialState, {
 
         // Bid
         let all_bid: number[][] = p['b']
-        let valid_bid = all_bid.filter( b => b[1] > 0) // filter the bids with 0 quantity
-        let valid_bid_price = [] 
+        let valid_bid           = all_bid.filter( b => b[1] > 0)  // filter the bids with 0 quantity
+        let valid_bid_price     = []
         for (let i = 0; i < valid_bid.length; i++) {
             valid_bid_price.push(valid_bid[i][0]) // get all valid prices with bids
         }
@@ -95,7 +95,7 @@ export const webReducer =  createReducer(initialState, {
 
     [connectFail.type]: (state, action) => {
         state.errorMsg = action.payload;
-        state.status = false;
+        state.status   = false;
         return state;
     },
 

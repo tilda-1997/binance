@@ -3,36 +3,36 @@ import { Line } from '@reactchartjs/react-chart.js'
 import styled from "styled-components";
 
 const Div = styled.div`
-  width: 700px;
+  width  : 700px;
   padding: 30px 80px 60px 60px;
 `
 
 export default function HighLowAsk () {
 
-    const highAsk = useSelector((state) => state.webReducer.askPrice_max)
-    const lowAsk =  useSelector((state) => state.webReducer.askPrice_min)
+    const highAsk   = useSelector((state) => state.webReducer.askPrice_max)
+    const lowAsk    = useSelector((state) => state.webReducer.askPrice_min)
     const eventList = useSelector((state) => state.webReducer.eventTime)
 
     const highLowAsks = {
-        labels: eventList,
+        labels  : eventList,
         datasets: [
           {
-            label: '# Highest Ask Price',
-            data: highAsk,
-            fill: false,
+            label      : '# Highest Ask Price',
+            data       : highAsk,
+            fill       : false,
             borderColor: '#FEAB72',
             pointRadius: 0,
-            fill: false,
+            fill       : false,
             lineTension: 0,
             borderWidth: 2
           },
           {
-            label: '# Lowest Ask Price',
-            data: lowAsk,
-            fill: false,
+            label      : '# Lowest Ask Price',
+            data       : lowAsk,
+            fill       : false,
             borderColor: '#B0EBE7',
             pointRadius: 0,
-            fill: false,
+            fill       : false,
             lineTension: 0,
             borderWidth: 2
           },
@@ -42,16 +42,16 @@ export default function HighLowAsk () {
     const options = {
         title: {
             display: true,
-            text: 'High & low price of ask'
+            text   : 'High & low price of ask'
           },
         scales: {
             tooltips: {
-                enabled: false,
-                mode: 'index',
+                enabled : false,
+                mode    : 'index',
                 position: 'average',
             },
             hover: {
-                mode: 'index',
+                mode     : 'index',
                 intersect: true
             },
             xAxes: [{
@@ -62,9 +62,9 @@ export default function HighLowAsk () {
                 }],
             yAxes: [{
                 scaleLabel: {
-                    display: true,
+                    display    : true,
                     labelString: 'price (x0.001)',
-                    color: '#F7F8F6'
+                    color      : '#F7F8F6'
                 },  
                 ticks: {
                     beginAtZero: false,
@@ -76,7 +76,7 @@ export default function HighLowAsk () {
 
     return(
         <Div>
-         <Line data={highLowAsks} options={options} />
+         <Line data = {highLowAsks} options = {options} />
         </Div>
     )
 }
