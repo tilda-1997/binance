@@ -8,7 +8,6 @@ import HighAskBid from './Components/ask_bid_high';
 import LowAskBid from './Components/ask_bid_low';
 import './App.css';
 
-
 const Div = styled.div`
   margin          : 0;
   padding         : 0;
@@ -22,7 +21,7 @@ const H1 = styled.h1`
     color      : #DCE3EF;
     font-family: Optima;
     text-align : center;
-    margin-top    : 0
+    margin-top : 0
 `
 const ChartDiv = styled.div`
   display              : grid;

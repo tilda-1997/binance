@@ -31,7 +31,6 @@ export default function LowAskBid () {
             data            : bidLow,
             fill            : false,
             borderColor     : '#DF6C7E',
-            pointRadius     : 0,
             backgroundColor : '#FBB1B5',
             pointRadius     : 5,
             pointHoverRadius: 15,

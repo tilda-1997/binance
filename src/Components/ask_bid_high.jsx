@@ -31,7 +31,6 @@ export default function HighAskBid () {
             data            : bidHigh,
             fill            : false,
             borderColor     : '#FDE0A2',
-            pointRadius     : 0,
             backgroundColor : '#FDE0A2',
             pointRadius     : 5,
             pointHoverRadius: 15,

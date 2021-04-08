@@ -9,18 +9,18 @@ export interface Binance {
 }
 
 export interface ChartProps {
-    bidList: Binance[], 
+    bidList: Binance[],
 }
 
 export interface BidProps {
-    labels?: number[]; 
+    labels?  : number[];
     datasets?: DataSet []
 }
 
 export interface DataSet {
-    label: string; 
-    data: number[]; 
-    fill: boolean; 
-    backgroundColor: string; 
-    borderColor: string; 
+    label          : string;
+    data           : number[];
+    fill           : boolean;
+    backgroundColor: string;
+    borderColor    : string;
 }

@@ -19,7 +19,6 @@ export default function HighLowBid () {
           {
             label      : '# Highest Bid Price',
             data       : highBid,
-            fill       : false,
             borderColor: '#FA8079',
             pointRadius: 0,
             fill       : false,
@@ -29,7 +28,6 @@ export default function HighLowBid () {
           {
             label      : '# Lowest Bid Price',
             data       : lowBid,
-            fill       : false,
             borderColor: '#B1D1A6',
             pointRadius: 0,
             fill       : false,

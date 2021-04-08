@@ -19,7 +19,6 @@ export default function HighLowAsk () {
           {
             label      : '# Highest Ask Price',
             data       : highAsk,
-            fill       : false,
             borderColor: '#FEAB72',
             pointRadius: 0,
             fill       : false,
@@ -29,7 +28,6 @@ export default function HighLowAsk () {
           {
             label      : '# Lowest Ask Price',
             data       : lowAsk,
-            fill       : false,
             borderColor: '#B0EBE7',
             pointRadius: 0,
             fill       : false,
