@@ -19,6 +19,10 @@ const Text = styled.p`
     font-family: Optima;
     text-align : center
 `
+const Aa = styled.a`
+    text-decoration: none;
+    color: #E3E6DA
+`
 
 const StateIcon = () => {
 
@@ -44,9 +48,10 @@ const StateIcon = () => {
         </Div>
        
         { eventList[60]? (<Text> <AiOutlineFall /> The data shows the real-time transactions of BinanceCoin BTC (BNB-BTC).
-        Time event <AiOutlineSchedule />  From  {eventList[0]} to {eventList[60]}. </Text>) : 
-        ( <Text>  <AiOutlineFall /> The data shows the real-time transactions of BinanceCoin BTC (BNB-BTC).  </Text>)}
-       
+        Time event <AiOutlineSchedule />  From  {eventList[0]} to {eventList[60]}. <Aa href='https://github.com/tilda-1997/binance'> View on GitHub &rarr;</Aa> </Text>) : 
+        ( <Text>  <AiOutlineFall /> The data shows the real-time transactions of BinanceCoin BTC (BNB-BTC). 
+            <Aa href='https://github.com/tilda-1997/binance'> View on GitHub &rarr;</Aa> 
+         </Text>)}
         </>
     )
 }
