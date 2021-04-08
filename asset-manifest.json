@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/binance/static/css/main.4fef4ea5.chunk.css",
+    "main.js": "/binance/static/js/main.0ac878ef.chunk.js",
+    "main.js.map": "/binance/static/js/main.0ac878ef.chunk.js.map",
+    "runtime-main.js": "/binance/static/js/runtime-main.bb07efd7.js",
+    "runtime-main.js.map": "/binance/static/js/runtime-main.bb07efd7.js.map",
+    "static/js/2.6ea05533.chunk.js": "/binance/static/js/2.6ea05533.chunk.js",
+    "static/js/2.6ea05533.chunk.js.map": "/binance/static/js/2.6ea05533.chunk.js.map",
+    "static/js/3.439201af.chunk.js": "/binance/static/js/3.439201af.chunk.js",
+    "static/js/3.439201af.chunk.js.map": "/binance/static/js/3.439201af.chunk.js.map",
+    "index.html": "/binance/index.html",
+    "static/css/main.4fef4ea5.chunk.css.map": "/binance/static/css/main.4fef4ea5.chunk.css.map",
+    "static/js/2.6ea05533.chunk.js.LICENSE.txt": "/binance/static/js/2.6ea05533.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bb07efd7.js",
+    "static/js/2.6ea05533.chunk.js",
+    "static/css/main.4fef4ea5.chunk.css",
+    "static/js/main.0ac878ef.chunk.js"
+  ]
+}
